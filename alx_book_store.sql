@@ -18,9 +18,9 @@ CREATE TABLE Books (
 );
 
 
-CREATE TABLE customer_name (
+CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    customer_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     phone VARCHAR(20),
     address TEXT
@@ -30,14 +30,14 @@ CREATE TABLE customer_name (
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
-    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    order_date DATE DEFAULT CURRENT_TIMESTAMP,
     total_amount DOUBLE,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 
 CREATE TABLE Order_Details (
-    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
+    orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
     quantity INT NOT NULL,
