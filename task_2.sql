@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS Books (
     title VARCHAR(255) NOT NULL,
     author_id INT,
     isbn VARCHAR(255),
+    price DECIMAL(10, 2), -- ✅ Added price column
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
