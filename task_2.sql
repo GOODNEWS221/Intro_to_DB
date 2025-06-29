@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Books (
     title VARCHAR(255) NOT NULL,
     author_id INT,
     isbn VARCHAR(255),
-    price DECIMAL(10, 2), -- ✅ Added price column
+    price DECIMAL(10, 2),
     FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
@@ -23,13 +23,11 @@ CREATE TABLE IF NOT EXISTS Customers (
 );
 
 -- Create Orders table
-CREATE TABLE IF NOT EXISTS Order_Details (
-    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
-    book_id INT,
-    quantity DOUBLE, -- ✅ updated from INT to DOUBLE
-    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+CREATE TABLE IF NOT EXISTS Orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 -- Create Order_Details table
@@ -37,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
     book_id INT,
-    quantity INT,
+    quantity DOUBLE,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
