@@ -1,3 +1,6 @@
+SHOW TABLES
+
+
 authors
 books
 customers
