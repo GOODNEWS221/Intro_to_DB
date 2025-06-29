@@ -18,7 +18,7 @@ CREATE TABLE Books (
 );
 
 
-CREATE TABLE Customers (
+CREATE TABLE customer_name (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
